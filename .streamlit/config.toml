@@ -1,0 +1,11 @@
+[theme]
+primaryColor = "#00c73c" # 네이버 상징색 초록색
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f0f2f6"
+textColor = "#31333F"
+font = "sans serif"
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = false

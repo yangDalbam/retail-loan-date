@@ -1,0 +1,32 @@
+{
+  "skill_name": "py-streamlit",
+  "evals": [
+    {
+      "id": 0,
+      "name": "build-from-scratch",
+      "prompt": "online-retail/data/online_retail.parquet 데이터를 사용하여 '온라인 리테일 판매 분석 대시보드'를 작성하세요. 핵심 KPI(매출, 주문수 등)를 상단에 배치하고, 시계열 추세와 상품별 분석을 포함해야 합니다. 또한 st.cache_data를 사용하여 성능을 최적화하고 sidebar에 필터를 추가하세요.",
+      "expected_output": "Streamlit 대시보드 코드가 생성되어야 하며, KPI, 시계열 차트, 필터, 캐싱이 포함되어야 함.",
+      "files": ["online-retail/data/online_retail.parquet"],
+      "assertions": [
+        {"name": "has_caching", "type": "code_search", "pattern": "st.cache_data|st.cache_resource"},
+        {"name": "has_kpi_metrics", "type": "code_search", "pattern": "st.metric"},
+        {"name": "has_sidebar", "type": "code_search", "pattern": "st.sidebar"},
+        {"name": "has_charts", "type": "code_search", "pattern": "plotly_chart|line_chart|bar_chart"},
+        {"name": "has_title", "type": "code_search", "pattern": "st.title"}
+      ]
+    },
+    {
+      "id": 1,
+      "name": "review-and-improve",
+      "prompt": "다음 Streamlit 코드를 리뷰하고 py-streamlit 스킬의 체크리스트를 기반으로 개선된 버전을 작성하세요.\n\n```python\nimport streamlit as st\nimport pandas as pd\n\ndf = pd.read_csv('nps-company/data/국민연금공단_국민연금 가입 사업장 내역_20260423.csv', encoding='cp949')\nst.title('국민연금 가입 사업장 조회')\nst.write(df.head())\nst.line_chart(df['신규가입자수'])\n```",
+      "expected_output": "결측치 처리, 이상치 분석, 캐싱 적용, UI 개선(KPI 카드, 필터 등)이 포함된 개선된 코드가 생성되어야 함.",
+      "files": ["nps-company/data/국민연금공단_국민연금 가입 사업장 내역_20260423.csv"],
+      "assertions": [
+        {"name": "caching_applied", "type": "code_search", "pattern": "st.cache_data"},
+        {"name": "ui_ux_improvement", "type": "code_search", "pattern": "st.metric|st.sidebar"},
+        {"name": "data_quality_check", "type": "llm_eval", "criteria": "결측치나 데이터 전처리 로직이 포함되었는가?"},
+        {"name": "advanced_analysis", "type": "llm_eval", "criteria": "상관분석이나 히트맵 등 고도화된 분석 시각화가 포함되었는가?"}
+      ]
+    }
+  ]
+}

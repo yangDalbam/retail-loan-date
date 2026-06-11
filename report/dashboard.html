@@ -522,7 +522,50 @@
             .chart-card { margin-bottom: 2rem; }
             body::before { display: none; }
         }
+    
+        .custom-select {
+            padding: 0.5rem;
+            border-radius: 8px;
+            background: var(--glass-bg);
+            color: var(--text-main);
+            border: 1px solid var(--glass-border);
+            outline: none;
+            cursor: pointer;
+            margin-left: 0.5rem;
+            font-family: inherit;
+        }
+        .custom-select option {
+            background: var(--bg-color);
+            color: var(--text-main);
+        }
+        .chart-img-container {
+            position: relative;
+            height: 450px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 1rem;
+        }
+        .chart-control {
+            width: 100%;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        .chart-control label {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+        canvas {
+            max-width: 100%;
+            max-height: 100%;
+        }
     </style>
+    <!-- Chart.js 및 박스플롯 플러그인 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/@sgratzl/chartjs-chart-boxplot@4.3.0/build/index.umd.min.js"></script>
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="Main Navigation">
@@ -623,9 +666,9 @@
                 <h3 class="category-title">▶ 대출잔액 및 시장 점유율 현황</h3>
                 <div class="gallery-grid">
                     
-                    <div class="chart-card horizontal-card" onclick="openLightbox('../images/chart_1_loan_balance_trend.png')">
+                    <div class="chart-card horizontal-card">
                         <div class="chart-img-container">
-                            <img src="../images/chart_1_loan_balance_trend.png" alt="회사별 대출잔액 변화 추이" loading="lazy">
+                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart1"></canvas></div>
                         </div>
                         <div class="chart-info">
                             <h4>회사별 대출잔액 변화 추이</h4>
@@ -633,9 +676,9 @@
                         </div>
                     </div>
                     
-                    <div class="chart-card horizontal-card" onclick="openLightbox('../images/chart_2_loan_balance_pie.png')">
+                    <div class="chart-card horizontal-card">
                         <div class="chart-img-container">
-                            <img src="../images/chart_2_loan_balance_pie.png" alt="2026년 5월 기준 대출잔액 비중" loading="lazy">
+                            <div class="chart-control"><label for="periodSelect2">조회 기간:</label><select id="periodSelect2" class="custom-select"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart2"></canvas></div>
                         </div>
                         <div class="chart-info">
                             <h4>2026년 5월 기준 대출잔액 비중</h4>
@@ -650,9 +693,9 @@
                 <h3 class="category-title">▶ 건전성 리스크 및 연체 지표 분석</h3>
                 <div class="gallery-grid">
                     
-                    <div class="chart-card " onclick="openLightbox('../images/chart_4_delay_rate_trend.png')">
+                    <div class="chart-card ">
                         <div class="chart-img-container">
-                            <img src="../images/chart_4_delay_rate_trend.png" alt="회사별 연체율 변동 추이" loading="lazy">
+                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart4"></canvas></div>
                         </div>
                         <div class="chart-info">
                             <h4>회사별 연체율 변동 추이</h4>
@@ -660,9 +703,9 @@
                         </div>
                     </div>
                     
-                    <div class="chart-card " onclick="openLightbox('../images/chart_5_avg_delay_rate.png')">
+                    <div class="chart-card ">
                         <div class="chart-img-container">
-                            <img src="../images/chart_5_avg_delay_rate.png" alt="6개사 평균 연체율 추이" loading="lazy">
+                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart5"></canvas></div>
                         </div>
                         <div class="chart-info">
                             <h4>6개사 평균 연체율 추이</h4>
@@ -670,9 +713,9 @@
                         </div>
                     </div>
                     
-                    <div class="chart-card " onclick="openLightbox('../images/chart_3_delay_amount_bar.png')">
+                    <div class="chart-card ">
                         <div class="chart-img-container">
-                            <img src="../images/chart_3_delay_amount_bar.png" alt="회사별 연체금액 비교" loading="lazy">
+                            <div class="chart-control"><label for="periodSelect3">조회 기간:</label><select id="periodSelect3" class="custom-select"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart3"></canvas></div>
                         </div>
                         <div class="chart-info">
                             <h4>회사별 연체금액 비교</h4>
@@ -680,9 +723,9 @@
                         </div>
                     </div>
                     
-                    <div class="chart-card " onclick="openLightbox('../images/chart_8_scatter_balance_delay.png')">
+                    <div class="chart-card ">
                         <div class="chart-img-container">
-                            <img src="../images/chart_8_scatter_balance_delay.png" alt="대출잔액과 연체금액 산점도" loading="lazy">
+                            <div class="chart-control"><label for="periodSelect8">조회 기간:</label><select id="periodSelect8" class="custom-select"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart8"></canvas></div>
                         </div>
                         <div class="chart-info">
                             <h4>대출잔액과 연체금액 산점도</h4>
@@ -690,9 +733,9 @@
                         </div>
                     </div>
                     
-                    <div class="chart-card " onclick="openLightbox('../images/chart_9_delay_boxplot.png')">
+                    <div class="chart-card ">
                         <div class="chart-img-container">
-                            <img src="../images/chart_9_delay_boxplot.png" alt="회사별 연체금액 박스플롯" loading="lazy">
+                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart9"></canvas></div>
                         </div>
                         <div class="chart-info">
                             <h4>회사별 연체금액 박스플롯</h4>
@@ -700,9 +743,9 @@
                         </div>
                     </div>
                     
-                    <div class="chart-card " onclick="openLightbox('../images/chart_10_delay_rate_boxplot.png')">
+                    <div class="chart-card ">
                         <div class="chart-img-container">
-                            <img src="../images/chart_10_delay_rate_boxplot.png" alt="회사별 연체율 분포 박스플롯" loading="lazy">
+                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart10"></canvas></div>
                         </div>
                         <div class="chart-info">
                             <h4>회사별 연체율 분포 박스플롯</h4>
@@ -717,9 +760,9 @@
                 <h3 class="category-title">▶ 부실채권 매각 및 구조적 요인</h3>
                 <div class="gallery-grid">
                     
-                    <div class="chart-card " onclick="openLightbox('../images/chart_6_delay_rate_reduction.png')">
+                    <div class="chart-card ">
                         <div class="chart-img-container">
-                            <img src="../images/chart_6_delay_rate_reduction.png" alt="매각을 통한 연체율 하락 효과" loading="lazy">
+                            <div class="chart-control"><label for="periodSelect6">조회 기간:</label><select id="periodSelect6" class="custom-select"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart6"></canvas></div>
                         </div>
                         <div class="chart-info">
                             <h4>매각을 통한 연체율 하락 효과</h4>
@@ -727,9 +770,9 @@
                         </div>
                     </div>
                     
-                    <div class="chart-card " onclick="openLightbox('../images/chart_7_sell_amount_bar.png')">
+                    <div class="chart-card ">
                         <div class="chart-img-container">
-                            <img src="../images/chart_7_sell_amount_bar.png" alt="월별 회사별 매각 금액 추이" loading="lazy">
+                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart7"></canvas></div>
                         </div>
                         <div class="chart-info">
                             <h4>월별 회사별 매각 금액 추이</h4>
@@ -1523,5 +1566,8 @@
             });
         });
     </script>
+    <!-- 데이터 로드 및 차트 렌더링 -->
+    <script src="data.js"></script>
+    <script src="dashboard_charts.js"></script>
 </body>
 </html>
