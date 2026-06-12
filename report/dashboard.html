@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="ko" data-theme="dark">
+
+<html data-theme="dark" lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Improvement 13: Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
-    <title>온투업 개인신용대출 프리미엄 대시보드</title>
-    
-    <!-- Improvement 16: Font loading optimization -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Improvement 13: Favicon -->
+<link href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;📊&lt;/text&gt;&lt;/svg&gt;" rel="icon"/>
+<title>온투업 개인신용대출 프리미엄 대시보드</title>
+<!-- Improvement 16: Font loading optimization -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&amp;family=Noto+Sans+KR:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<style>
         /* CSS 변수 설정 (Improvement 5: Theme Switcher 지원) */
         :root[data-theme="dark"] {
             --bg-color: #0f172a;
@@ -563,943 +562,917 @@
             max-height: 100%;
         }
     </style>
-    <!-- Chart.js 및 박스플롯 플러그인 -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://unpkg.com/@sgratzl/chartjs-chart-boxplot@4.3.0/build/index.umd.min.js"></script>
+<!-- Chart.js 및 박스플롯 플러그인 -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://unpkg.com/@sgratzl/chartjs-chart-boxplot@4.3.0/build/index.umd.min.js"></script>
 </head>
 <body>
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
-        <div class="logo">
-            <span style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">📊 FinDash</span>
-        </div>
-        <div class="nav-links">
-            <a href="#kpi-section">핵심 지표</a>
-            <a href="#insight-section">종합 평가</a>
-            <a href="#gallery-section">차트 갤러리</a>
-            <a href="#data-section">원시 데이터</a>
-        </div>
-        <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">🌞 Light Mode</button>
-    </nav>
-
-    <div class="container">
-        <header>
-            <h1>온투업 개인신용대출 대시보드</h1>
-            <p class="subtitle">2026년 5월 기준 핵심 지표 및 전체 분석 시각화 현황</p>
-        </header>
-
-        <!-- KPI Section -->
-        <section id="kpi-section" class="kpi-grid" role="region" aria-label="Key Performance Indicators">
-            <div class="kpi-card">
-                <div class="kpi-title">
-                    <span>총 대출잔액</span>
-                    <span class="tooltip-icon" data-tooltip="6개사 대출잔액 총합">❓</span>
+<nav aria-label="Main Navigation" class="navbar" role="navigation">
+<div class="logo">
+<span style="font-size: 1.5rem; font-weight: 800; color: var(--accent);">📊 FinDash</span>
+</div>
+<div class="nav-links">
+<a href="#kpi-section">핵심 지표</a>
+<a href="#insight-section">종합 평가</a>
+<a href="#gallery-section">차트 갤러리</a>
+<a href="#data-section">원시 데이터</a>
+</div>
+<button aria-label="Toggle Dark/Light Mode" class="theme-toggle" id="themeToggle">🌞 Light Mode</button>
+</nav>
+<div class="container">
+<header>
+<h1>온투업 개인신용대출 대시보드</h1>
+<p class="subtitle">2026년 5월 기준 핵심 지표 및 전체 분석 시각화 현황</p>
+</header>
+<!-- KPI Section -->
+<section aria-label="Key Performance Indicators" class="kpi-grid" id="kpi-section" role="region">
+<div class="kpi-card">
+<div class="kpi-title">
+<span>총 대출잔액</span>
+<span class="tooltip-icon" data-tooltip="6개사 대출잔액 총합">❓</span>
+</div>
+<div class="kpi-value count-up" data-val="360918503646.0">3,609.2억 원</div>
+<div class="kpi-mom positive">
+                    🔺 628.6억 원 (전월대비)
                 </div>
-                <div class="kpi-value count-up" data-val="360918503646.0">360.9억 원</div>
-                <div class="kpi-mom positive">
-                    🔺 62.9억 원 (전월대비)
+</div>
+<div class="kpi-card">
+<div class="kpi-title">
+<span>총 연체금액</span>
+<span class="tooltip-icon" data-tooltip="6개사 연체금액 총합">❓</span>
+</div>
+<div class="kpi-value count-up" data-val="3472432050.0" style="color: #f87171;">34.7억 원</div>
+<div class="kpi-mom positive">
+                    🔻 3.7억 원 (전월대비)
                 </div>
-            </div>
-            
-            <div class="kpi-card">
-                <div class="kpi-title">
-                    <span>총 연체금액</span>
-                    <span class="tooltip-icon" data-tooltip="6개사 연체금액 총합">❓</span>
+</div>
+<div class="kpi-card">
+<div class="kpi-title">
+<span>총 매각금액</span>
+<span class="tooltip-icon" data-tooltip="당월 6개사 부실채권 매각 총합">❓</span>
+</div>
+<div class="kpi-value count-up" data-val="270533478.0" style="color: #4ade80;">2.7억 원</div>
+<div class="kpi-mom negative">
+                    🔻 3.2억 원 (전월대비)
                 </div>
-                <div class="kpi-value count-up" data-val="3472432050.0" style="color: #f87171;">3.5억 원</div>
-                <div class="kpi-mom positive">
-                    🔻 369.7백만 원 (전월대비)
-                </div>
-            </div>
-
-            <div class="kpi-card">
-                <div class="kpi-title">
-                    <span>총 매각금액</span>
-                    <span class="tooltip-icon" data-tooltip="당월 6개사 부실채권 매각 총합">❓</span>
-                </div>
-                <div class="kpi-value count-up" data-val="270533478.0" style="color: #4ade80;">270.5백만 원</div>
-                <div class="kpi-mom negative">
-                    🔻 316.5백만 원 (전월대비)
-                </div>
-            </div>
-
-            <div class="kpi-card">
-                <div class="kpi-title">
-                    <span>6개사 평균 연체율</span>
-                    <span class="tooltip-icon" data-tooltip="(총 연체금액 ÷ 총 대출잔액) 가중평균">❓</span>
-                </div>
-                <div class="kpi-value" style="color: #fbbf24;">0.96%</div>
-                <div class="kpi-mom positive">
+</div>
+<div class="kpi-card">
+<div class="kpi-title">
+<span>6개사 평균 연체율</span>
+<span class="tooltip-icon" data-tooltip="(총 연체금액 ÷ 총 대출잔액) 가중평균">❓</span>
+</div>
+<div class="kpi-value" style="color: #fbbf24;">0.96%</div>
+<div class="kpi-mom positive">
                     🔻 0.33p (전월대비)
                 </div>
-            </div>
-        </section>
-
-        <!-- Insight Section -->
-        <section id="insight-section" class="insight-section" role="region" aria-label="Insights">
-            <h2 class="section-title">💡 종합 평가 및 도출 요소</h2>
-            <div class="insight-content">
-                <div class="insight-box">
-                    <h3>🟢 긍정적 요소 (기회 요인)</h3>
-                    
-                    <p><strong>1. 대형사의 리스크 관리 역량 입증:</strong> PFCT와 어니스트AI 등 선두 그룹은 잔액을 늘리면서도 연체율을 시장 최저 수준으로 방어해내며, 우수한 신용평가 모형(CSS) 작동을 입증했습니다.</p>
-                    
-                    <p><strong>2. 연체채권 매각 시장의 활성화:</strong> 다수의 업체가 연체채권을 매각하여 유동성을 확보하고 부실자산을 현금화하는 등 재무 건전성 관리를 위한 유효한 수단이 정착되었습니다.</p>
-                    
-                </div>
-                <div class="insight-box">
-                    <h3>🔴 위험 요소 (위협 요인)</h3>
-                    
-                    <p><strong>1. 소형 업체의 심각한 건전성 위기:</strong> 모우다의 연체율은 의료진 신용대출이라는 비즈니스 모델 한계로 인한 성장 정체 상황 탓에 압도적 1위(약 20%대)를 기록 중입니다. 모우다는 매각 대신 법정 소송 등을 통한 회수 전략을 펼치고 있습니다.</p>
-                    
-                    <p><strong>2. 연체율 상승 트렌드:</strong> 시장 평균 연체율이 2026년 1월을 기점으로 서서히 우상향하고 있어, 잠재적 부실 규모 증가에 대한 경고 신호로 받아들여야 합니다.</p>
-                    
-                </div>
-            </div>
-        </section>
-
-        <!-- Chart Gallery Section -->
-        <section id="gallery-section" role="region" aria-label="Chart Gallery">
-            <h2 class="section-title">📊 시각화 분석 갤러리</h2>
-            
-            
-            <div class="category-wrapper">
-                <h3 class="category-title">▶ 대출잔액 및 시장 점유율 현황</h3>
-                <div class="gallery-grid">
-                    
-                    <div class="chart-card horizontal-card">
-                        <div class="chart-img-container">
-                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart1"></canvas></div>
-                        </div>
-                        <div class="chart-info">
-                            <h4>회사별 대출잔액 변화 추이</h4>
-                            <p>이 그래프는 2026년 1월부터 5월까지 온투업 6개사의 개인신용 대출잔액 변동 추이를 시계열로 나타내고 있습니다. 데이터를 분석해 보면 PFCT와 어니스트AI의 대출잔액이 꾸준한 우상향 곡선을 그리며 전체 성장을 견인하고 있음을 확인할 수 있습니다. 특히 PFCT는 매월 안정적인 잔액 증가폭을 기록하며 시장 내 잔액 기준 선두를 유지하고 있으며, 어니스트AI 역시 이에 준하는 성장세를 보이며 2위 그룹을 형성하고 있습니다. 한편 한패스파이낸셜과 에잇퍼센트는 완만한 증가세를 보이며 중위권 그룹의 잔액 규모를 일정하게 유지하고 있습니다. 모우다와 머니무브의 경우 타사 대비 잔액 규모가 상대적으로 작게 나타나고 있으며, 해당 기간 동안 잔액의 변동폭이 크지 않은 보합세를 나타냅니다. 결과적으로 온투업 개인신용대출 시장은 대출잔액 기준으로 상위 2개사에 자산이 집중되는 경향을 보이고 있으며, 각 회사의 영업 전략 및 대출 취급 규모에 따라 잔액의 성장 속도에 뚜렷한 차이가 발생하고 있음을 데이터를 통해 객관적으로 확인할 수 있습니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="chart-card horizontal-card">
-                        <div class="chart-img-container">
-                            <div class="chart-control"><label for="periodSelect2">조회 기간:</label><select id="periodSelect2" class="custom-select"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart2"></canvas></div>
-                        </div>
-                        <div class="chart-info">
-                            <h4>2026년 5월 기준 대출잔액 비중</h4>
-                            <p>2026년 5월 말 기준 6개사의 개인신용 대출잔액을 원형 그래프로 구성하여 시장 내 비중을 도식화한 자료입니다. 전체 대출잔액을 100%로 환산했을 때, 가장 두드러진 특징은 PFCT와 어니스트AI 두 업체가 차지하는 비중의 합이 전체의 절반 이상을 기록하고 있다는 점입니다. 구체적으로 PFCT가 단일 업체 중 가장 높은 비율을 차지하고 있으며, 이어서 어니스트AI가 두 번째로 큰 비중을 확보하고 있습니다. 중위권인 한패스파이낸셜과 에잇퍼센트 역시 유의미한 수준의 잔액 비중을 기록하며 시장 점유율의 한 축을 담당하고 있습니다. 반면 모우다와 머니무브가 차지하는 대출잔액 비중은 전체 시장 대비 상대적으로 적은 비율에 머무르고 있습니다. 이러한 데이터 분포는 현재 온투업 개인신용대출 시장의 자산이 특정 상위 업체들에게 높은 비율로 편중되어 구성되어 있음을 객관적으로 나타냅니다. 각 사의 자산 운용 규모와 대출 취급 여력이 점유율이라는 수치로 명확히 나뉘어 있으며, 이는 업계 전반의 자금 배분 구조를 파악하는 기초 자료로 활용될 수 있습니다.</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="category-wrapper">
-                <h3 class="category-title">▶ 건전성 리스크 및 연체 지표 분석</h3>
-                <div class="gallery-grid">
-                    
-                    <div class="chart-card ">
-                        <div class="chart-img-container">
-                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart4"></canvas></div>
-                        </div>
-                        <div class="chart-info">
-                            <h4>회사별 연체율 변동 추이</h4>
-                            <p>이 시계열 그래프는 2026년 1월부터 5월까지 각 회사의 월별 연체율(연체금액/대출잔액) 추이를 개별적으로 추적한 결과입니다. 데이터를 살펴보면 PFCT, 어니스트AI, 한패스파이낸셜, 에잇퍼센트, 머니무브 등 5개사의 연체율은 해당 기간 동안 큰 변동 없이 낮은 한 자릿수 수준에서 안정적으로 유지되고 있습니다. 이들은 매월 일정한 수준 내에서 연체율 지표를 관리하고 있으며, 잔액의 증가와 관계없이 비율 자체는 보합세 내지 소폭 하락의 안정적인 곡선을 그립니다. 대조적으로 모우다의 연체율은 조사 기간 내내 다른 5개사와 뚜렷하게 구별되는 높은 수치(약 20% 내외)를 기록하고 있습니다. 이는 앞서 확인한 모우다의 높은 절대 연체금액과 정체된 대출잔액이 수식적으로 반영된 결과로, 타사 대비 연체율 지표가 상단 구간에 머무르고 있음을 보여줍니다. 이처럼 기업별 연체율 그래프의 궤적이 상이하게 나타나는 현상은 각 사의 신규 대출 취급량 및 누적 연체 자산의 처리 속도가 상호 다르게 작용하고 있음을 수치적으로 증명하는 객관적인 근거가 됩니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="chart-card ">
-                        <div class="chart-img-container">
-                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart5"></canvas></div>
-                        </div>
-                        <div class="chart-info">
-                            <h4>6개사 평균 연체율 추이</h4>
-                            <p>온투업 6개사의 데이터를 통합하여 산출한 전체 가중평균 연체율의 월별 변동 추이를 시각화한 차트입니다. 개별 기업의 단순 산술 평균이 아닌 전체 대출잔액 대비 전체 연체금액의 비율을 나타내어 시장 전반의 평균적인 건전성 지표를 보여줍니다. 그래프를 분석해 보면 2026년 초반 일정 수준을 유지하던 평균 연체율이 시간이 지남에 따라 완만하게 상승하는 추세로 전환되었음을 관찰할 수 있습니다. 이는 특정 업체의 단일 요인이라기보다는, 시장을 구성하는 6개사 전체 대출 자산의 총합에서 연체금액의 비율이 점진적으로 증가하고 있음을 통계적으로 나타냅니다. 거시 경제 지표의 변동성이나 전반적인 차주 상환 능력의 변화 등이 시장 전체의 데이터 수치로 일정 부분 반영되었을 가능성을 보여주는 결과입니다. 각 사는 개별적인 연체율 통계 외에도 이러한 시장 전체의 평균 연체율 추이를 참고 지표로 삼아 자사의 건전성 지표가 업계 평균 대비 어느 정도의 수준에 위치하고 있는지 객관적으로 파악하고 대출 취급 심사 등에 기초 데이터로 활용할 수 있습니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="chart-card ">
-                        <div class="chart-img-container">
-                            <div class="chart-control"><label for="periodSelect3">조회 기간:</label><select id="periodSelect3" class="custom-select"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart3"></canvas></div>
-                        </div>
-                        <div class="chart-info">
-                            <h4>회사별 연체금액 비교</h4>
-                            <p>본 막대그래프는 6개사 각각의 연체금액 절대 수치를 상호 비교하여 보여줍니다. 분석 결과, 대출잔액 비중이 상대적으로 적게 나타났던 모우다가 연체금액의 절대 규모 측면에서는 6개사 중 가장 높은 수치를 기록하고 있는 것으로 확인되었습니다. 모우다는 의료진 등 특정 차주군을 대상으로 한 신용대출을 주로 취급하고 있으며, 이러한 특화된 대출 자산에서 연체가 집중적으로 집계되고 있습니다. 반면 대출잔액 비중의 과반을 차지하는 상위 대형사들(PFCT, 어니스트AI 등)의 경우, 보유 중인 대출잔액 규모 대비 상대적으로 낮은 수준의 연체금액을 유지하고 있는 것으로 나타났습니다. 이는 각 사가 보유한 대출 자산의 특성, 차주 구성, 그리고 신용평가 및 채권 관리 프로세스의 차이가 연체금액이라는 결과 수치에 다르게 반영되고 있음을 보여줍니다. 따라서 전체 대출잔액 규모와 연체금액 규모가 반드시 비례하지 않으며, 개별 회사의 대출 포트폴리오 및 자체적인 자산 관리 현황에 따라 연체 발생 규모에 뚜렷한 편차가 존재함을 실제 데이터를 통해 객관적으로 관찰할 수 있습니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="chart-card ">
-                        <div class="chart-img-container">
-                            <div class="chart-control"><label for="periodSelect8">조회 기간:</label><select id="periodSelect8" class="custom-select"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart8"></canvas></div>
-                        </div>
-                        <div class="chart-info">
-                            <h4>대출잔액과 연체금액 산점도</h4>
-                            <p>각 회사의 대출잔액을 X축으로, 연체금액을 Y축으로 설정하여 6개사의 위치를 산점도로 도식화한 분석 자료입니다. 이 그래프를 통해 대출 규모와 연체 규모 간의 객관적인 상관관계를 시각적으로 파악할 수 있습니다. 산점도의 분포를 살펴보면, 대출잔액이 큰 대형사(PFCT, 어니스트AI 등)의 경우 Y축인 연체금액 수치는 비교적 낮은 하단에 군집하여 위치하고 있습니다. 반대로 X축의 대출잔액이 적은 특정 업체(모우다)의 경우 Y축인 연체금액 수치가 그래프 상단에 단독으로 높게 위치하는 특이점을 보입니다. 일반적으로 대출 규모가 커지면 연체금액도 비례하여 증가할 것이라는 양(+)의 상관관계 대신, 본 데이터셋에서는 대출잔액이 큰 업체가 낮은 연체액을, 대출잔액이 적은 업체가 높은 연체액을 기록하는 역(-)의 상관관계에 가까운 분포 특성이 관찰됩니다. 이는 온투업계 내 각 회사의 자산 포트폴리오 특성, 주력 대출 상품군, 그리고 자체적인 여신 심사 및 사후 관리 시스템의 차이가 데이터 상에 명확한 위치적 편차로 반영되고 있음을 보여줍니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="chart-card ">
-                        <div class="chart-img-container">
-                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart9"></canvas></div>
-                        </div>
-                        <div class="chart-info">
-                            <h4>회사별 연체금액 박스플롯</h4>
-                            <p>6개사 각각의 연체금액 월별 변동폭을 통계적 도구인 박스플롯(Box Plot)으로 시각화하여 데이터의 분산 정도를 객관적으로 측정한 그래프입니다. 데이터를 살펴보면 PFCT, 어니스트AI 등 대부분의 회사는 박스의 상하 폭이 매우 좁게 나타나며 이상치(Outlier)도 거의 관찰되지 않습니다. 이는 해당 기업들의 월별 연체금액 규모가 일정한 범위 내에서 매우 안정적으로 집계되고 있음을 수학적으로 증명합니다. 반면, 데이터 상 유일하게 모우다의 박스 크기가 상하로 길게 뻗어 있으며 중앙값(Median)의 위치 또한 타사 대비 현저히 높은 위치에 분포하고 있습니다. 이는 모우다의 연체금액 수치가 평균적으로 높을 뿐만 아니라, 특정 시점마다 연체 발생액의 수치적 변동폭(분산)이 상당히 크게 나타나고 있음을 통계적으로 보여주는 사실적인 지표입니다. 이처럼 각 사별로 연체금액 데이터가 갖는 통계적 특성 및 산포도가 전혀 다른 분포 형태를 띠고 있음을 통해, 개별 기업의 대출 자산이 보여주는 데이터의 성향을 객관적이고 다각적으로 평가할 수 있습니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="chart-card ">
-                        <div class="chart-img-container">
-                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart10"></canvas></div>
-                        </div>
-                        <div class="chart-info">
-                            <h4>회사별 연체율 분포 박스플롯</h4>
-                            <p>연체금액의 절대 수치뿐만 아니라, 대출잔액 대비 연체율의 분포를 박스플롯으로 재구성하여 각 사의 지표 변동성을 측정한 자료입니다. 5개사의 경우 연체율 박스플롯이 Y축 최하단(0%~5% 구간)에 매우 좁게 위치하여 일관된 분포를 보이고 있습니다. 이는 해당 기업들이 취급하는 전체 여신 규모가 증가하거나 변동함에도 불구하고 비율로서의 연체 지표가 거의 일정한 수치로 산출되고 있음을 객관적으로 나타냅니다. 반대로 모우다의 연체율 박스플롯은 Y축 20% 내외의 상단에 위치하며 다른 회사들의 데이터 분포와는 통계적으로 완전히 분리된 별도의 군집을 형성하고 있습니다. 박스 상단과 하단의 수염(Whisker) 길이도 상대적으로 길게 형성되어, 월별 연체율 지표의 산출값이 비교적 넓은 범위에서 변동하고 있음을 수치적으로 보여줍니다. 이 그래프는 전체 대출잔액 중 부실 채권이 차지하는 비중의 변동성이 기업별로 어떻게 군집화되어 있는지, 특정 업체와 타 업체 그룹 간의 데이터 분포 상 편차가 어느 정도 규모로 벌어져 있는지를 사실적으로 기술합니다.</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="category-wrapper">
-                <h3 class="category-title">▶ 부실채권 매각 및 구조적 요인</h3>
-                <div class="gallery-grid">
-                    
-                    <div class="chart-card ">
-                        <div class="chart-img-container">
-                            <div class="chart-control"><label for="periodSelect6">조회 기간:</label><select id="periodSelect6" class="custom-select"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart6"></canvas></div>
-                        </div>
-                        <div class="chart-info">
-                            <h4>매각을 통한 연체율 하락 효과</h4>
-                            <p>이 자료는 부실채권 매각 전과 매각 후의 연체율 지표 차이를 정량적으로 분석하여 비교한 것입니다. 각 업체가 외부 기관에 연체채권을 매각하게 되면, 대차대조표 상의 연체금액이 감소하여 수학적으로 공시되는 연체율 지표가 하락하게 됩니다. 데이터를 확인해 보면, 이러한 매각 처리를 통해 각 사의 명목 연체율이 평균적으로 일정 퍼센트포인트(p) 인하되는 수치적 효과가 일관되게 나타나고 있습니다. 매각 전 연체금액이 높았던 업체의 경우 매각을 통한 지표 하락폭이 더욱 가시적으로 나타나며, 상대적으로 연체율이 낮았던 대형사들 또한 매각을 통해 지표를 한 자릿수 초반으로 관리하는 데 효과를 거두고 있음을 알 수 있습니다. 이 분석은 공시된 최종 연체율 수치뿐만 아니라, 채권 매각이라는 사후 관리 절차가 지표에 미치는 계량적 영향을 객관적으로 분리하여 산출함으로써, 각 사가 연체 지표를 어떤 방식으로 관리하고 통제하고 있는지에 대한 사실적인 데이터 구조를 이해하는 데 중요한 참고 자료를 제공합니다.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="chart-card ">
-                        <div class="chart-img-container">
-                            <div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart7"></canvas></div>
-                        </div>
-                        <div class="chart-info">
-                            <h4>월별 회사별 매각 금액 추이</h4>
-                            <p>각 회사가 월별로 실행한 부실채권 매각 규모를 누적 막대그래프 형태로 시간 순으로 나타낸 자료입니다. 월별 매각 금액의 추이를 객관적으로 살펴보면, 연중 매월 고르게 매각이 일어난다기보다는 특정 월이나 분기 말에 매각 규모가 일시적으로 집중되는 데이터 패턴이 관찰됩니다. 특히 잔액 규모가 큰 상위 업체들의 경우 특정 시점에 비교적 큰 규모의 매각이 이루어지는 경우가 확인되며, 이는 각 사의 정기적인 부실채권 정리 일정이나 결산기 전후의 자산 건전성 관리 프로세스에 따른 결과로 해석됩니다. 반면 일부 소형 업체의 경우 이러한 정기적인 매각 기록이 적거나 매각 규모 자체가 작게 나타나고 있어, 채권의 사후 회수 및 매각을 처리하는 회사별 내부 방침에 뚜렷한 차이가 존재함을 데이터를 통해 파악할 수 있습니다. 이 그래프는 각 사의 연체율이 특정 시점에 갑자기 하락하는 현상을 매각 금액 데이터와 교차 검증하여, 지표 변동의 수치적 근거를 명확하게 설명해 주는 중요한 현황 파악 용도로 활용됩니다.</p>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
-        </section>
-
-        <!-- Raw Data Section -->
-        <section id="data-section" role="region" aria-label="Raw Data Table">
-            <h2 class="section-title">📄 2026년 5월 원시 데이터 현황</h2>
-            <div class="data-table-wrapper">
-                <table class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Company</th>
-      <th>개인신용 대출잔액</th>
-      <th>매각 금액</th>
-      <th>연체금액</th>
-      <th>연체율</th>
-    </tr>
-  </thead>
-  <tbody>
+</div>
+</section>
+<!-- Insight Section -->
+<section aria-label="Insights" class="insight-section" id="insight-section" role="region">
+<h2 class="section-title">💡 종합 평가 및 도출 요소</h2>
+<div class="insight-content">
+<div class="insight-box">
+<h3>🟢 긍정적 요소 (기회 요인)</h3>
+<p><strong>1. 대형사의 리스크 관리 역량 입증:</strong> PFCT와 어니스트AI 등 선두 그룹은 잔액을 늘리면서도 연체율을 시장 최저 수준으로 방어해내며, 우수한 신용평가 모형(CSS) 작동을 입증했습니다.</p>
+<p><strong>2. 연체채권 매각 시장의 활성화:</strong> 다수의 업체가 연체채권을 매각하여 유동성을 확보하고 부실자산을 현금화하는 등 재무 건전성 관리를 위한 유효한 수단이 정착되었습니다.</p>
+</div>
+<div class="insight-box">
+<h3>🔴 위험 요소 (위협 요인)</h3>
+<p><strong>1. 소형 업체의 심각한 건전성 위기:</strong> 모우다의 연체율은 의료진 신용대출이라는 비즈니스 모델 한계로 인한 성장 정체 상황 탓에 압도적 1위(약 20%대)를 기록 중입니다. 모우다는 매각 대신 법정 소송 등을 통한 회수 전략을 펼치고 있습니다.</p>
+<p><strong>2. 연체율 상승 트렌드:</strong> 시장 평균 연체율이 2026년 1월을 기점으로 서서히 우상향하고 있어, 잠재적 부실 규모 증가에 대한 경고 신호로 받아들여야 합니다.</p>
+</div>
+</div>
+</section>
+<!-- Chart Gallery Section -->
+<section aria-label="Chart Gallery" id="gallery-section" role="region">
+<h2 class="section-title">📊 시각화 분석 갤러리</h2>
+<div class="category-wrapper">
+<h3 class="category-title">▶ 대출잔액 및 시장 점유율 현황</h3>
+<div class="gallery-grid">
+<div class="chart-card horizontal-card">
+<div class="chart-img-container">
+<div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart1"></canvas></div>
+</div>
+<div class="chart-info">
+<h4>회사별 대출잔액 변화 추이</h4>
+<p>이 그래프는 2026년 1월부터 5월까지 온투업 6개사의 개인신용 대출잔액 변동 추이를 시계열로 나타내고 있습니다. 데이터를 분석해 보면 PFCT와 어니스트AI의 대출잔액이 꾸준한 우상향 곡선을 그리며 전체 성장을 견인하고 있음을 확인할 수 있습니다. 특히 PFCT는 매월 안정적인 잔액 증가폭을 기록하며 시장 내 잔액 기준 선두를 유지하고 있으며, 어니스트AI 역시 이에 준하는 성장세를 보이며 2위 그룹을 형성하고 있습니다. 한편 한패스파이낸셜과 에잇퍼센트는 완만한 증가세를 보이며 중위권 그룹의 잔액 규모를 일정하게 유지하고 있습니다. 모우다와 머니무브의 경우 타사 대비 잔액 규모가 상대적으로 작게 나타나고 있으며, 해당 기간 동안 잔액의 변동폭이 크지 않은 보합세를 나타냅니다. 결과적으로 온투업 개인신용대출 시장은 대출잔액 기준으로 상위 2개사에 자산이 집중되는 경향을 보이고 있으며, 각 회사의 영업 전략 및 대출 취급 규모에 따라 잔액의 성장 속도에 뚜렷한 차이가 발생하고 있음을 데이터를 통해 객관적으로 확인할 수 있습니다.</p>
+</div>
+</div>
+<div class="chart-card horizontal-card">
+<div class="chart-img-container">
+<div class="chart-control"><label for="periodSelect2">조회 기간:</label><select class="custom-select" id="periodSelect2"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart2"></canvas></div>
+</div>
+<div class="chart-info">
+<h4>2026년 5월 기준 대출잔액 비중</h4>
+<p>2026년 5월 말 기준 6개사의 개인신용 대출잔액을 원형 그래프로 구성하여 시장 내 비중을 도식화한 자료입니다. 전체 대출잔액을 100%로 환산했을 때, 가장 두드러진 특징은 PFCT와 어니스트AI 두 업체가 차지하는 비중의 합이 전체의 절반 이상을 기록하고 있다는 점입니다. 구체적으로 PFCT가 단일 업체 중 가장 높은 비율을 차지하고 있으며, 이어서 어니스트AI가 두 번째로 큰 비중을 확보하고 있습니다. 중위권인 한패스파이낸셜과 에잇퍼센트 역시 유의미한 수준의 잔액 비중을 기록하며 시장 점유율의 한 축을 담당하고 있습니다. 반면 모우다와 머니무브가 차지하는 대출잔액 비중은 전체 시장 대비 상대적으로 적은 비율에 머무르고 있습니다. 이러한 데이터 분포는 현재 온투업 개인신용대출 시장의 자산이 특정 상위 업체들에게 높은 비율로 편중되어 구성되어 있음을 객관적으로 나타냅니다. 각 사의 자산 운용 규모와 대출 취급 여력이 점유율이라는 수치로 명확히 나뉘어 있으며, 이는 업계 전반의 자금 배분 구조를 파악하는 기초 자료로 활용될 수 있습니다.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="category-wrapper">
+<h3 class="category-title">▶ 건전성 리스크 및 연체 지표 분석</h3>
+<div class="gallery-grid">
+<div class="chart-card">
+<div class="chart-img-container">
+<div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart4"></canvas></div>
+</div>
+<div class="chart-info">
+<h4>회사별 연체율 변동 추이</h4>
+<p>이 시계열 그래프는 2026년 1월부터 5월까지 각 회사의 월별 연체율(연체금액/대출잔액) 추이를 개별적으로 추적한 결과입니다. 데이터를 살펴보면 PFCT, 어니스트AI, 한패스파이낸셜, 에잇퍼센트, 머니무브 등 5개사의 연체율은 해당 기간 동안 큰 변동 없이 낮은 한 자릿수 수준에서 안정적으로 유지되고 있습니다. 이들은 매월 일정한 수준 내에서 연체율 지표를 관리하고 있으며, 잔액의 증가와 관계없이 비율 자체는 보합세 내지 소폭 하락의 안정적인 곡선을 그립니다. 대조적으로 모우다의 연체율은 조사 기간 내내 다른 5개사와 뚜렷하게 구별되는 높은 수치(약 20% 내외)를 기록하고 있습니다. 이는 앞서 확인한 모우다의 높은 절대 연체금액과 정체된 대출잔액이 수식적으로 반영된 결과로, 타사 대비 연체율 지표가 상단 구간에 머무르고 있음을 보여줍니다. 이처럼 기업별 연체율 그래프의 궤적이 상이하게 나타나는 현상은 각 사의 신규 대출 취급량 및 누적 연체 자산의 처리 속도가 상호 다르게 작용하고 있음을 수치적으로 증명하는 객관적인 근거가 됩니다.</p>
+</div>
+</div>
+<div class="chart-card">
+<div class="chart-img-container">
+<div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart5"></canvas></div>
+</div>
+<div class="chart-info">
+<h4>6개사 평균 연체율 추이</h4>
+<p>온투업 6개사의 데이터를 통합하여 산출한 전체 가중평균 연체율의 월별 변동 추이를 시각화한 차트입니다. 개별 기업의 단순 산술 평균이 아닌 전체 대출잔액 대비 전체 연체금액의 비율을 나타내어 시장 전반의 평균적인 건전성 지표를 보여줍니다. 그래프를 분석해 보면 2026년 초반 일정 수준을 유지하던 평균 연체율이 시간이 지남에 따라 완만하게 상승하는 추세로 전환되었음을 관찰할 수 있습니다. 이는 특정 업체의 단일 요인이라기보다는, 시장을 구성하는 6개사 전체 대출 자산의 총합에서 연체금액의 비율이 점진적으로 증가하고 있음을 통계적으로 나타냅니다. 거시 경제 지표의 변동성이나 전반적인 차주 상환 능력의 변화 등이 시장 전체의 데이터 수치로 일정 부분 반영되었을 가능성을 보여주는 결과입니다. 각 사는 개별적인 연체율 통계 외에도 이러한 시장 전체의 평균 연체율 추이를 참고 지표로 삼아 자사의 건전성 지표가 업계 평균 대비 어느 정도의 수준에 위치하고 있는지 객관적으로 파악하고 대출 취급 심사 등에 기초 데이터로 활용할 수 있습니다.</p>
+</div>
+</div>
+<div class="chart-card">
+<div class="chart-img-container">
+<div class="chart-control"><label for="periodSelect3">조회 기간:</label><select class="custom-select" id="periodSelect3"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart3"></canvas></div>
+</div>
+<div class="chart-info">
+<h4>회사별 연체금액 비교</h4>
+<p>본 막대그래프는 6개사 각각의 연체금액 절대 수치를 상호 비교하여 보여줍니다. 분석 결과, 대출잔액 비중이 상대적으로 적게 나타났던 모우다가 연체금액의 절대 규모 측면에서는 6개사 중 가장 높은 수치를 기록하고 있는 것으로 확인되었습니다. 모우다는 의료진 등 특정 차주군을 대상으로 한 신용대출을 주로 취급하고 있으며, 이러한 특화된 대출 자산에서 연체가 집중적으로 집계되고 있습니다. 반면 대출잔액 비중의 과반을 차지하는 상위 대형사들(PFCT, 어니스트AI 등)의 경우, 보유 중인 대출잔액 규모 대비 상대적으로 낮은 수준의 연체금액을 유지하고 있는 것으로 나타났습니다. 이는 각 사가 보유한 대출 자산의 특성, 차주 구성, 그리고 신용평가 및 채권 관리 프로세스의 차이가 연체금액이라는 결과 수치에 다르게 반영되고 있음을 보여줍니다. 따라서 전체 대출잔액 규모와 연체금액 규모가 반드시 비례하지 않으며, 개별 회사의 대출 포트폴리오 및 자체적인 자산 관리 현황에 따라 연체 발생 규모에 뚜렷한 편차가 존재함을 실제 데이터를 통해 객관적으로 관찰할 수 있습니다.</p>
+</div>
+</div>
+<div class="chart-card">
+<div class="chart-img-container">
+<div class="chart-control"><label for="periodSelect8">조회 기간:</label><select class="custom-select" id="periodSelect8"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart8"></canvas></div>
+</div>
+<div class="chart-info">
+<h4>대출잔액과 연체금액 산점도</h4>
+<p>각 회사의 대출잔액을 X축으로, 연체금액을 Y축으로 설정하여 6개사의 위치를 산점도로 도식화한 분석 자료입니다. 이 그래프를 통해 대출 규모와 연체 규모 간의 객관적인 상관관계를 시각적으로 파악할 수 있습니다. 산점도의 분포를 살펴보면, 대출잔액이 큰 대형사(PFCT, 어니스트AI 등)의 경우 Y축인 연체금액 수치는 비교적 낮은 하단에 군집하여 위치하고 있습니다. 반대로 X축의 대출잔액이 적은 특정 업체(모우다)의 경우 Y축인 연체금액 수치가 그래프 상단에 단독으로 높게 위치하는 특이점을 보입니다. 일반적으로 대출 규모가 커지면 연체금액도 비례하여 증가할 것이라는 양(+)의 상관관계 대신, 본 데이터셋에서는 대출잔액이 큰 업체가 낮은 연체액을, 대출잔액이 적은 업체가 높은 연체액을 기록하는 역(-)의 상관관계에 가까운 분포 특성이 관찰됩니다. 이는 온투업계 내 각 회사의 자산 포트폴리오 특성, 주력 대출 상품군, 그리고 자체적인 여신 심사 및 사후 관리 시스템의 차이가 데이터 상에 명확한 위치적 편차로 반영되고 있음을 보여줍니다.</p>
+</div>
+</div>
+<div class="chart-card">
+<div class="chart-img-container">
+<div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart9"></canvas></div>
+</div>
+<div class="chart-info">
+<h4>회사별 연체금액 (최소/평균/최대)</h4>
+                            <p>6개사 각각의 연체금액의 월별 최소치, 평균, 최대치를 막대 그래프로 요약하여 시각화한 자료입니다. 직관적인 막대 그래프를 통해 쉽게 회사의 연체금액 변동 수준을 파악할 수 있습니다. 특히 어니스트AI의 경우 최소 연체금액은 0원에 가깝지만 최대 연체금액은 약 10억 원 수준에 달해, 평균치 대비 최소치와 최대치의 격차가 커 연체액의 월별 변동성이 높다는 점을 명확히 확인할 수 있습니다.</p>
+</div>
+</div>
+<div class="chart-card">
+<div class="chart-img-container">
+<div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart10"></canvas></div>
+</div>
+<div class="chart-info">
+<h4>회사별 연체율 (최소/평균/최대)</h4>
+                            <p>대출잔액 대비 연체율의 최소, 평균, 최대치를 막대 그래프로 재구성하여 각 사의 지표 변동성을 측정한 자료입니다. 전반적으로 대부분 회사의 평균 연체율이 안정적인 흐름을 보이는 가운데, PFCT의 경우 최소 연체율과 최대 연체율 간의 격차가 상대적으로 두드러지게 나타납니다. 이는 특정 기간에 연체율이 다소 높게 상승한 구간이 있었음을 시사하며, 개별 기업의 리스크 관리 현황을 파악하는 데 참고할 수 있습니다.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="category-wrapper">
+<h3 class="category-title">▶ 부실채권 매각 및 구조적 요인</h3>
+<div class="gallery-grid">
+<div class="chart-card">
+<div class="chart-img-container">
+<div class="chart-control"><label for="periodSelect6">조회 기간:</label><select class="custom-select" id="periodSelect6"></select></div><div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart6"></canvas></div>
+</div>
+<div class="chart-info">
+<h4>매각을 통한 연체율 하락 효과</h4>
+<p>이 자료는 부실채권 매각 전과 매각 후의 연체율 지표 차이를 정량적으로 분석하여 비교한 것입니다. 각 업체가 외부 기관에 연체채권을 매각하게 되면, 대차대조표 상의 연체금액이 감소하여 수학적으로 공시되는 연체율 지표가 하락하게 됩니다. 데이터를 확인해 보면, 이러한 매각 처리를 통해 각 사의 명목 연체율이 평균적으로 일정 퍼센트포인트(p) 인하되는 수치적 효과가 일관되게 나타나고 있습니다. 매각 전 연체금액이 높았던 업체의 경우 매각을 통한 지표 하락폭이 더욱 가시적으로 나타나며, 상대적으로 연체율이 낮았던 대형사들 또한 매각을 통해 지표를 한 자릿수 초반으로 관리하는 데 효과를 거두고 있음을 알 수 있습니다. 이 분석은 공시된 최종 연체율 수치뿐만 아니라, 채권 매각이라는 사후 관리 절차가 지표에 미치는 계량적 영향을 객관적으로 분리하여 산출함으로써, 각 사가 연체 지표를 어떤 방식으로 관리하고 통제하고 있는지에 대한 사실적인 데이터 구조를 이해하는 데 중요한 참고 자료를 제공합니다.</p>
+</div>
+</div>
+<div class="chart-card">
+<div class="chart-img-container">
+<div class="canvas-wrapper" style="position: relative; flex: 1; width: 100%; min-height: 0;"><canvas id="chart7"></canvas></div>
+</div>
+<div class="chart-info">
+<h4>월별 회사별 매각 금액 추이</h4>
+<p>각 회사가 월별로 실행한 부실채권 매각 규모를 누적 막대그래프 형태로 시간 순으로 나타낸 자료입니다. 월별 매각 금액의 추이를 객관적으로 살펴보면, 연중 매월 고르게 매각이 일어난다기보다는 특정 월이나 분기 말에 매각 규모가 일시적으로 집중되는 데이터 패턴이 관찰됩니다. 특히 잔액 규모가 큰 상위 업체들의 경우 특정 시점에 비교적 큰 규모의 매각이 이루어지는 경우가 확인되며, 이는 각 사의 정기적인 부실채권 정리 일정이나 결산기 전후의 자산 건전성 관리 프로세스에 따른 결과로 해석됩니다. 반면 일부 소형 업체의 경우 이러한 정기적인 매각 기록이 적거나 매각 규모 자체가 작게 나타나고 있어, 채권의 사후 회수 및 매각을 처리하는 회사별 내부 방침에 뚜렷한 차이가 존재함을 데이터를 통해 파악할 수 있습니다. 이 그래프는 각 사의 연체율이 특정 시점에 갑자기 하락하는 현상을 매각 금액 데이터와 교차 검증하여, 지표 변동의 수치적 근거를 명확하게 설명해 주는 중요한 현황 파악 용도로 활용됩니다.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Raw Data Section -->
+<section aria-label="Raw Data Table" id="data-section" role="region">
+<h2 class="section-title">📄 2026년 5월 원시 데이터 현황</h2>
+<div class="data-table-wrapper">
+<table class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>Company</th>
+<th>개인신용 대출잔액</th>
+<th>매각 금액</th>
+<th>연체금액</th>
+<th>연체율</th>
+</tr>
+</thead>
+<tbody>
     <tr>
-      <td>PFCT</td>
-      <td>170,856,609,317원</td>
-      <td>0원</td>
-      <td>747,668,544원</td>
-      <td>0.44%</td>
-    </tr>
+<td>PFCT</td>
+<td>170,856,609,317원</td>
+<td>0원</td>
+<td>747,668,544원</td>
+<td>0.44%</td>
+</tr>
     <tr>
-      <td>머니무브</td>
-      <td>16,529,353,684원</td>
-      <td>0원</td>
-      <td>389,961,912원</td>
-      <td>2.36%</td>
-    </tr>
+<td>어니스트AI</td>
+<td>82,838,484,939원</td>
+<td>51,408,034원</td>
+<td>0원</td>
+<td>0.00%</td>
+</tr>
     <tr>
-      <td>모우다</td>
-      <td>5,876,105,877원</td>
-      <td>0원</td>
-      <td>1,211,633,882원</td>
-      <td>20.61%</td>
-    </tr>
+<td>한패스파이낸셜</td>
+<td>50,419,495,500원</td>
+<td>95,447,610원</td>
+<td>500,945,434원</td>
+<td>0.99%</td>
+</tr>
     <tr>
-      <td>어니스트AI</td>
-      <td>82,838,484,939원</td>
-      <td>51,408,034원</td>
-      <td>0원</td>
-      <td>0.00%</td>
-    </tr>
+<td>에잇퍼센트</td>
+<td>34,398,454,329원</td>
+<td>123,677,834원</td>
+<td>622,222,278원</td>
+<td>1.81%</td>
+</tr>
     <tr>
-      <td>에잇퍼센트</td>
-      <td>34,398,454,329원</td>
-      <td>123,677,834원</td>
-      <td>622,222,278원</td>
-      <td>1.81%</td>
-    </tr>
+<td>머니무브</td>
+<td>16,529,353,684원</td>
+<td>0원</td>
+<td>389,961,912원</td>
+<td>2.36%</td>
+</tr>
     <tr>
-      <td>한패스파이낸셜</td>
-      <td>50,419,495,500원</td>
-      <td>95,447,610원</td>
-      <td>500,945,434원</td>
-      <td>0.99%</td>
-    </tr>
+<td>모우다</td>
+<td>5,876,105,877원</td>
+<td>0원</td>
+<td>1,211,633,882원</td>
+<td>20.61%</td>
+</tr>
   </tbody>
 </table>
-            </div>
-            
-            <h2 class="section-title" style="margin-top: 4rem;">🏢 6개사 회사별 전체 원시 데이터</h2>
-            
+</div>
+<h2 class="section-title" style="margin-top: 4rem;">🏢 6개사 회사별 전체 원시 데이터</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
             <h3 style="color: var(--accent); margin-top: 2rem; margin-bottom: 1rem;">▶ PFCT</h3>
             <div class="data-table-wrapper">
-                <table class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Date</th>
-      <th>Company</th>
-      <th>개인신용 대출잔액</th>
-      <th>매각 금액</th>
-      <th>연체금액</th>
-      <th>연체율</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2026-05-01</td>
-      <td>PFCT</td>
-      <td>170,856,609,317</td>
-      <td>0</td>
-      <td>747,668,544</td>
-      <td>0.0044</td>
-    </tr>
-    <tr>
-      <td>2026-04-01</td>
-      <td>PFCT</td>
-      <td>132,789,981,137</td>
-      <td>0</td>
-      <td>467,770,913</td>
-      <td>0.0035</td>
-    </tr>
-    <tr>
-      <td>2026-03-01</td>
-      <td>PFCT</td>
-      <td>101,013,336,143</td>
-      <td>429,975,678</td>
-      <td>320,975,296</td>
-      <td>0.0032</td>
-    </tr>
-    <tr>
-      <td>2026-02-01</td>
-      <td>PFCT</td>
-      <td>73,584,720,549</td>
-      <td>0</td>
-      <td>262,806,814</td>
-      <td>0.0036</td>
-    </tr>
-    <tr>
-      <td>2026-01-01</td>
-      <td>PFCT</td>
-      <td>59,391,999,635</td>
-      <td>819,774,773</td>
-      <td>210,009,174</td>
-      <td>0.0035</td>
-    </tr>
-    <tr>
-      <td>2025-12-01</td>
-      <td>PFCT</td>
-      <td>46,881,981,609</td>
-      <td>0</td>
-      <td>279,033,902</td>
-      <td>0.0060</td>
-    </tr>
-    <tr>
-      <td>2025-11-01</td>
-      <td>PFCT</td>
-      <td>34,775,057,291</td>
-      <td>0</td>
-      <td>244,764,367</td>
-      <td>0.0070</td>
-    </tr>
-    <tr>
-      <td>2025-10-01</td>
-      <td>PFCT</td>
-      <td>24,673,137,543</td>
-      <td>0</td>
-      <td>279,985,509</td>
-      <td>0.0113</td>
-    </tr>
-    <tr>
-      <td>2025-09-01</td>
-      <td>PFCT</td>
-      <td>17,868,487,517</td>
-      <td>81,472,729</td>
-      <td>235,456,642</td>
-      <td>0.0132</td>
-    </tr>
-    <tr>
-      <td>2025-08-01</td>
-      <td>PFCT</td>
-      <td>11,581,211,554</td>
-      <td>0</td>
-      <td>313,172,605</td>
-      <td>0.0270</td>
-    </tr>
-    <tr>
-      <td>2025-07-01</td>
-      <td>PFCT</td>
-      <td>8,240,591,157</td>
-      <td>71,219,234</td>
-      <td>280,906,747</td>
-      <td>0.0341</td>
-    </tr>
-  </tbody>
+<table class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>Date</th>
+<th>Company</th>
+<th>개인신용 대출잔액</th>
+<th>매각 금액</th>
+<th>연체금액</th>
+<th>연체율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-01</td>
+<td>PFCT</td>
+<td>170,856,609,317원</td>
+<td>0원</td>
+<td>747,668,544원</td>
+<td>0.44%</td>
+</tr>
+<tr>
+<td>2026-04-01</td>
+<td>PFCT</td>
+<td>132,789,981,137원</td>
+<td>0원</td>
+<td>467,770,913원</td>
+<td>0.35%</td>
+</tr>
+<tr>
+<td>2026-03-01</td>
+<td>PFCT</td>
+<td>101,013,336,143원</td>
+<td>429,975,678원</td>
+<td>320,975,296원</td>
+<td>0.32%</td>
+</tr>
+<tr>
+<td>2026-02-01</td>
+<td>PFCT</td>
+<td>73,584,720,549원</td>
+<td>0원</td>
+<td>262,806,814원</td>
+<td>0.36%</td>
+</tr>
+<tr>
+<td>2026-01-01</td>
+<td>PFCT</td>
+<td>59,391,999,635원</td>
+<td>819,774,773원</td>
+<td>210,009,174원</td>
+<td>0.35%</td>
+</tr>
+<tr>
+<td>2025-12-01</td>
+<td>PFCT</td>
+<td>46,881,981,609원</td>
+<td>0원</td>
+<td>279,033,902원</td>
+<td>0.60%</td>
+</tr>
+<tr>
+<td>2025-11-01</td>
+<td>PFCT</td>
+<td>34,775,057,291원</td>
+<td>0원</td>
+<td>244,764,367원</td>
+<td>0.70%</td>
+</tr>
+<tr>
+<td>2025-10-01</td>
+<td>PFCT</td>
+<td>24,673,137,543원</td>
+<td>0원</td>
+<td>279,985,509원</td>
+<td>1.13%</td>
+</tr>
+<tr>
+<td>2025-09-01</td>
+<td>PFCT</td>
+<td>17,868,487,517원</td>
+<td>81,472,729원</td>
+<td>235,456,642원</td>
+<td>1.32%</td>
+</tr>
+<tr>
+<td>2025-08-01</td>
+<td>PFCT</td>
+<td>11,581,211,554원</td>
+<td>0원</td>
+<td>313,172,605원</td>
+<td>2.70%</td>
+</tr>
+<tr>
+<td>2025-07-01</td>
+<td>PFCT</td>
+<td>8,240,591,157원</td>
+<td>71,219,234원</td>
+<td>280,906,747원</td>
+<td>3.41%</td>
+</tr>
+</tbody>
 </table>
-            </div>
-            
-            <h3 style="color: var(--accent); margin-top: 2rem; margin-bottom: 1rem;">▶ 머니무브</h3>
-            <div class="data-table-wrapper">
-                <table class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Date</th>
-      <th>Company</th>
-      <th>개인신용 대출잔액</th>
-      <th>매각 금액</th>
-      <th>연체금액</th>
-      <th>연체율</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2026-05-01</td>
-      <td>머니무브</td>
-      <td>16,529,353,684</td>
-      <td>0</td>
-      <td>389,961,912</td>
-      <td>0.0236</td>
-    </tr>
-    <tr>
-      <td>2026-04-01</td>
-      <td>머니무브</td>
-      <td>15,465,762,522</td>
-      <td>181,469,461</td>
-      <td>350,603,967</td>
-      <td>0.0227</td>
-    </tr>
-    <tr>
-      <td>2026-03-01</td>
-      <td>머니무브</td>
-      <td>14,476,033,687</td>
-      <td>122,509,701</td>
-      <td>405,021,667</td>
-      <td>0.0280</td>
-    </tr>
-    <tr>
-      <td>2026-02-01</td>
-      <td>머니무브</td>
-      <td>14,307,042,675</td>
-      <td>0</td>
-      <td>535,283,195</td>
-      <td>0.0374</td>
-    </tr>
-    <tr>
-      <td>2026-01-01</td>
-      <td>머니무브</td>
-      <td>13,317,365,847</td>
-      <td>81,848,215</td>
-      <td>339,019,386</td>
-      <td>0.0255</td>
-    </tr>
-    <tr>
-      <td>2025-12-01</td>
-      <td>머니무브</td>
-      <td>12,661,593,297</td>
-      <td>0</td>
-      <td>355,778,918</td>
-      <td>0.0281</td>
-    </tr>
-    <tr>
-      <td>2025-11-01</td>
-      <td>머니무브</td>
-      <td>11,744,317,506</td>
-      <td>53,838,688</td>
-      <td>298,073,401</td>
-      <td>0.0254</td>
-    </tr>
-    <tr>
-      <td>2025-10-01</td>
-      <td>머니무브</td>
-      <td>10,055,954,493</td>
-      <td>0</td>
-      <td>328,899,043</td>
-      <td>0.0327</td>
-    </tr>
-    <tr>
-      <td>2025-09-01</td>
-      <td>머니무브</td>
-      <td>8,925,764,296</td>
-      <td>0</td>
-      <td>254,935,885</td>
-      <td>0.0286</td>
-    </tr>
-    <tr>
-      <td>2025-08-01</td>
-      <td>머니무브</td>
-      <td>8,029,164,731</td>
-      <td>94,178,588</td>
-      <td>209,546,412</td>
-      <td>0.0261</td>
-    </tr>
-    <tr>
-      <td>2025-07-01</td>
-      <td>머니무브</td>
-      <td>7,861,169,113</td>
-      <td>0</td>
-      <td>211,412,167</td>
-      <td>0.0269</td>
-    </tr>
-  </tbody>
-</table>
-            </div>
-            
-            <h3 style="color: var(--accent); margin-top: 2rem; margin-bottom: 1rem;">▶ 모우다</h3>
-            <div class="data-table-wrapper">
-                <table class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Date</th>
-      <th>Company</th>
-      <th>개인신용 대출잔액</th>
-      <th>매각 금액</th>
-      <th>연체금액</th>
-      <th>연체율</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2026-05-01</td>
-      <td>모우다</td>
-      <td>5,876,105,877</td>
-      <td>0</td>
-      <td>1,211,633,882</td>
-      <td>0.2061</td>
-    </tr>
-    <tr>
-      <td>2026-04-01</td>
-      <td>모우다</td>
-      <td>5,956,701,527</td>
-      <td>0</td>
-      <td>1,144,529,940</td>
-      <td>0.1921</td>
-    </tr>
-    <tr>
-      <td>2026-03-01</td>
-      <td>모우다</td>
-      <td>6,279,833,145</td>
-      <td>0</td>
-      <td>1,035,908,304</td>
-      <td>0.1649</td>
-    </tr>
-    <tr>
-      <td>2026-02-01</td>
-      <td>모우다</td>
-      <td>6,302,753,775</td>
-      <td>0</td>
-      <td>1,036,804,362</td>
-      <td>0.1645</td>
-    </tr>
-    <tr>
-      <td>2026-01-01</td>
-      <td>모우다</td>
-      <td>6,522,292,464</td>
-      <td>0</td>
-      <td>1,037,700,420</td>
-      <td>0.1591</td>
-    </tr>
-    <tr>
-      <td>2025-12-01</td>
-      <td>모우다</td>
-      <td>6,566,050,814</td>
-      <td>0</td>
-      <td>1,038,596,478</td>
-      <td>0.1581</td>
-    </tr>
-    <tr>
-      <td>2025-11-01</td>
-      <td>모우다</td>
-      <td>6,863,901,714</td>
-      <td>0</td>
-      <td>1,056,498,977</td>
-      <td>0.1585</td>
-    </tr>
-    <tr>
-      <td>2025-10-01</td>
-      <td>모우다</td>
-      <td>6,863,901,714</td>
-      <td>0</td>
-      <td>1,295,013,091</td>
-      <td>0.1886</td>
-    </tr>
-    <tr>
-      <td>2025-09-01</td>
-      <td>모우다</td>
-      <td>6,721,491,827</td>
-      <td>0</td>
-      <td>1,295,909,149</td>
-      <td>0.1928</td>
-    </tr>
-    <tr>
-      <td>2025-08-01</td>
-      <td>모우다</td>
-      <td>6,520,622,327</td>
-      <td>0</td>
-      <td>1,296,805,207</td>
-      <td>0.1988</td>
-    </tr>
-    <tr>
-      <td>2025-07-01</td>
-      <td>모우다</td>
-      <td>6,625,824,414</td>
-      <td>0</td>
-      <td>1,297,701,265</td>
-      <td>0.1958</td>
-    </tr>
-  </tbody>
-</table>
-            </div>
+</div>
             
             <h3 style="color: var(--accent); margin-top: 2rem; margin-bottom: 1rem;">▶ 어니스트AI</h3>
             <div class="data-table-wrapper">
-                <table class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Date</th>
-      <th>Company</th>
-      <th>개인신용 대출잔액</th>
-      <th>매각 금액</th>
-      <th>연체금액</th>
-      <th>연체율</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2026-05-01</td>
-      <td>어니스트AI</td>
-      <td>82,838,484,939</td>
-      <td>51,408,034</td>
-      <td>0</td>
-      <td>0.0000</td>
-    </tr>
-    <tr>
-      <td>2026-04-01</td>
-      <td>어니스트AI</td>
-      <td>70,728,499,882</td>
-      <td>260,158,203</td>
-      <td>962,115,551</td>
-      <td>0.0133</td>
-    </tr>
-    <tr>
-      <td>2026-03-01</td>
-      <td>어니스트AI</td>
-      <td>62,038,239,900</td>
-      <td>83,086,004</td>
-      <td>728,660,533</td>
-      <td>0.0117</td>
-    </tr>
-    <tr>
-      <td>2026-02-01</td>
-      <td>어니스트AI</td>
-      <td>50,334,969,745</td>
-      <td>0</td>
-      <td>532,751,234</td>
-      <td>0.0106</td>
-    </tr>
-    <tr>
-      <td>2026-01-01</td>
-      <td>어니스트AI</td>
-      <td>40,851,096,269</td>
-      <td>37,152,929</td>
-      <td>341,760,044</td>
-      <td>0.0084</td>
-    </tr>
-    <tr>
-      <td>2025-12-01</td>
-      <td>어니스트AI</td>
-      <td>33,084,314,251</td>
-      <td>0</td>
-      <td>220,927,104</td>
-      <td>0.0068</td>
-    </tr>
-    <tr>
-      <td>2025-11-01</td>
-      <td>어니스트AI</td>
-      <td>23,925,698,740</td>
-      <td>0</td>
-      <td>128,734,346</td>
-      <td>0.0054</td>
-    </tr>
-    <tr>
-      <td>2025-10-01</td>
-      <td>어니스트AI</td>
-      <td>16,445,157,548</td>
-      <td>0</td>
-      <td>79,266,304</td>
-      <td>0.0048</td>
-    </tr>
-    <tr>
-      <td>2025-09-01</td>
-      <td>어니스트AI</td>
-      <td>11,753,843,053</td>
-      <td>0</td>
-      <td>39,481,027</td>
-      <td>0.0036</td>
-    </tr>
-    <tr>
-      <td>2025-08-01</td>
-      <td>어니스트AI</td>
-      <td>9,683,738,704</td>
-      <td>0</td>
-      <td>35,746,446</td>
-      <td>0.0037</td>
-    </tr>
-    <tr>
-      <td>2025-07-01</td>
-      <td>어니스트AI</td>
-      <td>5,659,246,828</td>
-      <td>0</td>
-      <td>22,904,767</td>
-      <td>0.0040</td>
-    </tr>
-  </tbody>
+<table class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>Date</th>
+<th>Company</th>
+<th>개인신용 대출잔액</th>
+<th>매각 금액</th>
+<th>연체금액</th>
+<th>연체율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-01</td>
+<td>어니스트AI</td>
+<td>82,838,484,939원</td>
+<td>51,408,034원</td>
+<td>0원</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>2026-04-01</td>
+<td>어니스트AI</td>
+<td>70,728,499,882원</td>
+<td>260,158,203원</td>
+<td>962,115,551원</td>
+<td>1.33%</td>
+</tr>
+<tr>
+<td>2026-03-01</td>
+<td>어니스트AI</td>
+<td>62,038,239,900원</td>
+<td>83,086,004원</td>
+<td>728,660,533원</td>
+<td>1.17%</td>
+</tr>
+<tr>
+<td>2026-02-01</td>
+<td>어니스트AI</td>
+<td>50,334,969,745원</td>
+<td>0원</td>
+<td>532,751,234원</td>
+<td>1.06%</td>
+</tr>
+<tr>
+<td>2026-01-01</td>
+<td>어니스트AI</td>
+<td>40,851,096,269원</td>
+<td>37,152,929원</td>
+<td>341,760,044원</td>
+<td>0.84%</td>
+</tr>
+<tr>
+<td>2025-12-01</td>
+<td>어니스트AI</td>
+<td>33,084,314,251원</td>
+<td>0원</td>
+<td>220,927,104원</td>
+<td>0.68%</td>
+</tr>
+<tr>
+<td>2025-11-01</td>
+<td>어니스트AI</td>
+<td>23,925,698,740원</td>
+<td>0원</td>
+<td>128,734,346원</td>
+<td>0.54%</td>
+</tr>
+<tr>
+<td>2025-10-01</td>
+<td>어니스트AI</td>
+<td>16,445,157,548원</td>
+<td>0원</td>
+<td>79,266,304원</td>
+<td>0.48%</td>
+</tr>
+<tr>
+<td>2025-09-01</td>
+<td>어니스트AI</td>
+<td>11,753,843,053원</td>
+<td>0원</td>
+<td>39,481,027원</td>
+<td>0.36%</td>
+</tr>
+<tr>
+<td>2025-08-01</td>
+<td>어니스트AI</td>
+<td>9,683,738,704원</td>
+<td>0원</td>
+<td>35,746,446원</td>
+<td>0.37%</td>
+</tr>
+<tr>
+<td>2025-07-01</td>
+<td>어니스트AI</td>
+<td>5,659,246,828원</td>
+<td>0원</td>
+<td>22,904,767원</td>
+<td>0.40%</td>
+</tr>
+</tbody>
 </table>
-            </div>
-            
-            <h3 style="color: var(--accent); margin-top: 2rem; margin-bottom: 1rem;">▶ 에잇퍼센트</h3>
-            <div class="data-table-wrapper">
-                <table class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Date</th>
-      <th>Company</th>
-      <th>개인신용 대출잔액</th>
-      <th>매각 금액</th>
-      <th>연체금액</th>
-      <th>연체율</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2026-05-01</td>
-      <td>에잇퍼센트</td>
-      <td>34,398,454,329</td>
-      <td>123,677,834</td>
-      <td>622,222,278</td>
-      <td>0.0181</td>
-    </tr>
-    <tr>
-      <td>2026-04-01</td>
-      <td>에잇퍼센트</td>
-      <td>30,615,633,097</td>
-      <td>145,357,800</td>
-      <td>456,233,573</td>
-      <td>0.0149</td>
-    </tr>
-    <tr>
-      <td>2026-03-01</td>
-      <td>에잇퍼센트</td>
-      <td>26,314,150,809</td>
-      <td>86,053,749</td>
-      <td>479,739,063</td>
-      <td>0.0182</td>
-    </tr>
-    <tr>
-      <td>2026-02-01</td>
-      <td>에잇퍼센트</td>
-      <td>22,375,173,140</td>
-      <td>47,246,883</td>
-      <td>465,584,628</td>
-      <td>0.0208</td>
-    </tr>
-    <tr>
-      <td>2026-01-01</td>
-      <td>에잇퍼센트</td>
-      <td>26,200,395,560</td>
-      <td>27,715,073</td>
-      <td>381,887,623</td>
-      <td>0.0190</td>
-    </tr>
-    <tr>
-      <td>2025-12-01</td>
-      <td>에잇퍼센트</td>
-      <td>16,780,646,323</td>
-      <td>41,639,600</td>
-      <td>313,507,063</td>
-      <td>0.0187</td>
-    </tr>
-    <tr>
-      <td>2025-11-01</td>
-      <td>에잇퍼센트</td>
-      <td>14,346,742,328</td>
-      <td>35,507,207</td>
-      <td>282,261,185</td>
-      <td>0.0197</td>
-    </tr>
-    <tr>
-      <td>2025-10-01</td>
-      <td>에잇퍼센트</td>
-      <td>11,487,267,634</td>
-      <td>51,285,889</td>
-      <td>306,139,405</td>
-      <td>0.0267</td>
-    </tr>
-    <tr>
-      <td>2025-09-01</td>
-      <td>에잇퍼센트</td>
-      <td>9,256,279,623</td>
-      <td>69,506,400</td>
-      <td>267,016,938</td>
-      <td>0.0288</td>
-    </tr>
-    <tr>
-      <td>2025-08-01</td>
-      <td>에잇퍼센트</td>
-      <td>7,925,461,266</td>
-      <td>33,940,626</td>
-      <td>306,071,186</td>
-      <td>0.0386</td>
-    </tr>
-    <tr>
-      <td>2025-07-01</td>
-      <td>에잇퍼센트</td>
-      <td>7,363,191,172</td>
-      <td>51,953,207</td>
-      <td>291,639,642</td>
-      <td>0.0396</td>
-    </tr>
-  </tbody>
-</table>
-            </div>
+</div>
             
             <h3 style="color: var(--accent); margin-top: 2rem; margin-bottom: 1rem;">▶ 한패스파이낸셜</h3>
             <div class="data-table-wrapper">
-                <table class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th>Date</th>
-      <th>Company</th>
-      <th>개인신용 대출잔액</th>
-      <th>매각 금액</th>
-      <th>연체금액</th>
-      <th>연체율</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>2026-05-01</td>
-      <td>한패스파이낸셜</td>
-      <td>50,419,495,500</td>
-      <td>95,447,610</td>
-      <td>500,945,434</td>
-      <td>0.0099</td>
-    </tr>
-    <tr>
-      <td>2026-04-01</td>
-      <td>한패스파이낸셜</td>
-      <td>42,498,922,587</td>
-      <td>0</td>
-      <td>460,883,408</td>
-      <td>0.0108</td>
-    </tr>
-    <tr>
-      <td>2026-03-01</td>
-      <td>한패스파이낸셜</td>
-      <td>33,791,790,471</td>
-      <td>0</td>
-      <td>95,447,510</td>
-      <td>0.0028</td>
-    </tr>
-    <tr>
-      <td>2026-02-01</td>
-      <td>한패스파이낸셜</td>
-      <td>26,200,395,560</td>
-      <td>0</td>
-      <td>72,822,842</td>
-      <td>0.0028</td>
-    </tr>
-    <tr>
-      <td>2026-01-01</td>
-      <td>한패스파이낸셜</td>
-      <td>21,148,676,479</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0000</td>
-    </tr>
-    <tr>
-      <td>2025-12-01</td>
-      <td>한패스파이낸셜</td>
-      <td>13,768,320,290</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0000</td>
-    </tr>
-    <tr>
-      <td>2025-11-01</td>
-      <td>한패스파이낸셜</td>
-      <td>7,493,277,912</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0000</td>
-    </tr>
-    <tr>
-      <td>2025-10-01</td>
-      <td>한패스파이낸셜</td>
-      <td>3,085,688,941</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0000</td>
-    </tr>
-    <tr>
-      <td>2025-09-01</td>
-      <td>한패스파이낸셜</td>
-      <td>998,971,296</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0000</td>
-    </tr>
-    <tr>
-      <td>2025-08-01</td>
-      <td>한패스파이낸셜</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0000</td>
-    </tr>
-    <tr>
-      <td>2025-07-01</td>
-      <td>한패스파이낸셜</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.0000</td>
-    </tr>
-  </tbody>
+<table class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>Date</th>
+<th>Company</th>
+<th>개인신용 대출잔액</th>
+<th>매각 금액</th>
+<th>연체금액</th>
+<th>연체율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-01</td>
+<td>한패스파이낸셜</td>
+<td>50,419,495,500원</td>
+<td>95,447,610원</td>
+<td>500,945,434원</td>
+<td>0.99%</td>
+</tr>
+<tr>
+<td>2026-04-01</td>
+<td>한패스파이낸셜</td>
+<td>42,498,922,587원</td>
+<td>0원</td>
+<td>460,883,408원</td>
+<td>1.08%</td>
+</tr>
+<tr>
+<td>2026-03-01</td>
+<td>한패스파이낸셜</td>
+<td>33,791,790,471원</td>
+<td>0원</td>
+<td>95,447,510원</td>
+<td>0.28%</td>
+</tr>
+<tr>
+<td>2026-02-01</td>
+<td>한패스파이낸셜</td>
+<td>26,200,395,560원</td>
+<td>0원</td>
+<td>72,822,842원</td>
+<td>0.28%</td>
+</tr>
+<tr>
+<td>2026-01-01</td>
+<td>한패스파이낸셜</td>
+<td>21,148,676,479원</td>
+<td>0원</td>
+<td>0원</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>2025-12-01</td>
+<td>한패스파이낸셜</td>
+<td>13,768,320,290원</td>
+<td>0원</td>
+<td>0원</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>2025-11-01</td>
+<td>한패스파이낸셜</td>
+<td>7,493,277,912원</td>
+<td>0원</td>
+<td>0원</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>2025-10-01</td>
+<td>한패스파이낸셜</td>
+<td>3,085,688,941원</td>
+<td>0원</td>
+<td>0원</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>2025-09-01</td>
+<td>한패스파이낸셜</td>
+<td>998,971,296원</td>
+<td>0원</td>
+<td>0원</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>2025-08-01</td>
+<td>한패스파이낸셜</td>
+<td>0원</td>
+<td>0원</td>
+<td>0원</td>
+<td>0.00%</td>
+</tr>
+<tr>
+<td>2025-07-01</td>
+<td>한패스파이낸셜</td>
+<td>0원</td>
+<td>0원</td>
+<td>0원</td>
+<td>0.00%</td>
+</tr>
+</tbody>
 </table>
-            </div>
+</div>
             
-        </section>
-
-        <footer>
-            <p>데이터 최종 업데이트: 2026-06-11 20:17:30 | 본 대시보드는 분석 목적으로 생성되었습니다.</p>
-        </footer>
-    </div>
-
-    <!-- Scroll to top button -->
-    <a href="#" class="scroll-top" id="scrollTopBtn" aria-label="Scroll to top">↑</a>
-
-    <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <img id="lightbox-img" src="" alt="Enlarged Chart">
-    </div>
-
-    <script>
+            <h3 style="color: var(--accent); margin-top: 2rem; margin-bottom: 1rem;">▶ 에잇퍼센트</h3>
+            <div class="data-table-wrapper">
+<table class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>Date</th>
+<th>Company</th>
+<th>개인신용 대출잔액</th>
+<th>매각 금액</th>
+<th>연체금액</th>
+<th>연체율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-01</td>
+<td>에잇퍼센트</td>
+<td>34,398,454,329원</td>
+<td>123,677,834원</td>
+<td>622,222,278원</td>
+<td>1.81%</td>
+</tr>
+<tr>
+<td>2026-04-01</td>
+<td>에잇퍼센트</td>
+<td>30,615,633,097원</td>
+<td>145,357,800원</td>
+<td>456,233,573원</td>
+<td>1.49%</td>
+</tr>
+<tr>
+<td>2026-03-01</td>
+<td>에잇퍼센트</td>
+<td>26,314,150,809원</td>
+<td>86,053,749원</td>
+<td>479,739,063원</td>
+<td>1.82%</td>
+</tr>
+<tr>
+<td>2026-02-01</td>
+<td>에잇퍼센트</td>
+<td>22,375,173,140원</td>
+<td>47,246,883원</td>
+<td>465,584,628원</td>
+<td>2.08%</td>
+</tr>
+<tr>
+<td>2026-01-01</td>
+<td>에잇퍼센트</td>
+<td>26,200,395,560원</td>
+<td>27,715,073원</td>
+<td>381,887,623원</td>
+<td>1.90%</td>
+</tr>
+<tr>
+<td>2025-12-01</td>
+<td>에잇퍼센트</td>
+<td>16,780,646,323원</td>
+<td>41,639,600원</td>
+<td>313,507,063원</td>
+<td>1.87%</td>
+</tr>
+<tr>
+<td>2025-11-01</td>
+<td>에잇퍼센트</td>
+<td>14,346,742,328원</td>
+<td>35,507,207원</td>
+<td>282,261,185원</td>
+<td>1.97%</td>
+</tr>
+<tr>
+<td>2025-10-01</td>
+<td>에잇퍼센트</td>
+<td>11,487,267,634원</td>
+<td>51,285,889원</td>
+<td>306,139,405원</td>
+<td>2.67%</td>
+</tr>
+<tr>
+<td>2025-09-01</td>
+<td>에잇퍼센트</td>
+<td>9,256,279,623원</td>
+<td>69,506,400원</td>
+<td>267,016,938원</td>
+<td>2.88%</td>
+</tr>
+<tr>
+<td>2025-08-01</td>
+<td>에잇퍼센트</td>
+<td>7,925,461,266원</td>
+<td>33,940,626원</td>
+<td>306,071,186원</td>
+<td>3.86%</td>
+</tr>
+<tr>
+<td>2025-07-01</td>
+<td>에잇퍼센트</td>
+<td>7,363,191,172원</td>
+<td>51,953,207원</td>
+<td>291,639,642원</td>
+<td>3.96%</td>
+</tr>
+</tbody>
+</table>
+</div>
+            
+            <h3 style="color: var(--accent); margin-top: 2rem; margin-bottom: 1rem;">▶ 머니무브</h3>
+            <div class="data-table-wrapper">
+<table class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>Date</th>
+<th>Company</th>
+<th>개인신용 대출잔액</th>
+<th>매각 금액</th>
+<th>연체금액</th>
+<th>연체율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-01</td>
+<td>머니무브</td>
+<td>16,529,353,684원</td>
+<td>0원</td>
+<td>389,961,912원</td>
+<td>2.36%</td>
+</tr>
+<tr>
+<td>2026-04-01</td>
+<td>머니무브</td>
+<td>15,465,762,522원</td>
+<td>181,469,461원</td>
+<td>350,603,967원</td>
+<td>2.27%</td>
+</tr>
+<tr>
+<td>2026-03-01</td>
+<td>머니무브</td>
+<td>14,476,033,687원</td>
+<td>122,509,701원</td>
+<td>405,021,667원</td>
+<td>2.80%</td>
+</tr>
+<tr>
+<td>2026-02-01</td>
+<td>머니무브</td>
+<td>14,307,042,675원</td>
+<td>0원</td>
+<td>535,283,195원</td>
+<td>3.74%</td>
+</tr>
+<tr>
+<td>2026-01-01</td>
+<td>머니무브</td>
+<td>13,317,365,847원</td>
+<td>81,848,215원</td>
+<td>339,019,386원</td>
+<td>2.55%</td>
+</tr>
+<tr>
+<td>2025-12-01</td>
+<td>머니무브</td>
+<td>12,661,593,297원</td>
+<td>0원</td>
+<td>355,778,918원</td>
+<td>2.81%</td>
+</tr>
+<tr>
+<td>2025-11-01</td>
+<td>머니무브</td>
+<td>11,744,317,506원</td>
+<td>53,838,688원</td>
+<td>298,073,401원</td>
+<td>2.54%</td>
+</tr>
+<tr>
+<td>2025-10-01</td>
+<td>머니무브</td>
+<td>10,055,954,493원</td>
+<td>0원</td>
+<td>328,899,043원</td>
+<td>3.27%</td>
+</tr>
+<tr>
+<td>2025-09-01</td>
+<td>머니무브</td>
+<td>8,925,764,296원</td>
+<td>0원</td>
+<td>254,935,885원</td>
+<td>2.86%</td>
+</tr>
+<tr>
+<td>2025-08-01</td>
+<td>머니무브</td>
+<td>8,029,164,731원</td>
+<td>94,178,588원</td>
+<td>209,546,412원</td>
+<td>2.61%</td>
+</tr>
+<tr>
+<td>2025-07-01</td>
+<td>머니무브</td>
+<td>7,861,169,113원</td>
+<td>0원</td>
+<td>211,412,167원</td>
+<td>2.69%</td>
+</tr>
+</tbody>
+</table>
+</div>
+            
+            <h3 style="color: var(--accent); margin-top: 2rem; margin-bottom: 1rem;">▶ 모우다</h3>
+            <div class="data-table-wrapper">
+<table class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th>Date</th>
+<th>Company</th>
+<th>개인신용 대출잔액</th>
+<th>매각 금액</th>
+<th>연체금액</th>
+<th>연체율</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2026-05-01</td>
+<td>모우다</td>
+<td>5,876,105,877원</td>
+<td>0원</td>
+<td>1,211,633,882원</td>
+<td>20.61%</td>
+</tr>
+<tr>
+<td>2026-04-01</td>
+<td>모우다</td>
+<td>5,956,701,527원</td>
+<td>0원</td>
+<td>1,144,529,940원</td>
+<td>19.21%</td>
+</tr>
+<tr>
+<td>2026-03-01</td>
+<td>모우다</td>
+<td>6,279,833,145원</td>
+<td>0원</td>
+<td>1,035,908,304원</td>
+<td>16.49%</td>
+</tr>
+<tr>
+<td>2026-02-01</td>
+<td>모우다</td>
+<td>6,302,753,775원</td>
+<td>0원</td>
+<td>1,036,804,362원</td>
+<td>16.45%</td>
+</tr>
+<tr>
+<td>2026-01-01</td>
+<td>모우다</td>
+<td>6,522,292,464원</td>
+<td>0원</td>
+<td>1,037,700,420원</td>
+<td>15.91%</td>
+</tr>
+<tr>
+<td>2025-12-01</td>
+<td>모우다</td>
+<td>6,566,050,814원</td>
+<td>0원</td>
+<td>1,038,596,478원</td>
+<td>15.81%</td>
+</tr>
+<tr>
+<td>2025-11-01</td>
+<td>모우다</td>
+<td>6,863,901,714원</td>
+<td>0원</td>
+<td>1,056,498,977원</td>
+<td>15.85%</td>
+</tr>
+<tr>
+<td>2025-10-01</td>
+<td>모우다</td>
+<td>6,863,901,714원</td>
+<td>0원</td>
+<td>1,295,013,091원</td>
+<td>18.86%</td>
+</tr>
+<tr>
+<td>2025-09-01</td>
+<td>모우다</td>
+<td>6,721,491,827원</td>
+<td>0원</td>
+<td>1,295,909,149원</td>
+<td>19.28%</td>
+</tr>
+<tr>
+<td>2025-08-01</td>
+<td>모우다</td>
+<td>6,520,622,327원</td>
+<td>0원</td>
+<td>1,296,805,207원</td>
+<td>19.88%</td>
+</tr>
+<tr>
+<td>2025-07-01</td>
+<td>모우다</td>
+<td>6,625,824,414원</td>
+<td>0원</td>
+<td>1,297,701,265원</td>
+<td>19.58%</td>
+</tr>
+</tbody>
+</table>
+</div>
+            </section>
+<footer>
+<p>데이터 최종 업데이트: 2026-06-11 20:17:30 | 본 대시보드는 분석 목적으로 생성되었습니다.</p>
+</footer>
+</div>
+<!-- Scroll to top button -->
+<a aria-label="Scroll to top" class="scroll-top" href="#" id="scrollTopBtn">↑</a>
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<img alt="Enlarged Chart" id="lightbox-img" src=""/>
+</div>
+<script>
         // Theme Toggle Logic
         const themeToggle = document.getElementById('themeToggle');
         const htmlElement = document.documentElement;
@@ -1566,8 +1539,8 @@
             });
         });
     </script>
-    <!-- 데이터 로드 및 차트 렌더링 -->
-    <script src="data.js"></script>
-    <script src="dashboard_charts.js"></script>
+<!-- 데이터 로드 및 차트 렌더링 -->
+<script src="data.js"></script>
+<script src="dashboard_charts.js"></script>
 </body>
 </html>

@@ -132,11 +132,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Chart 5: 6개사 평균 연체율 추이 (Line) ---
     const ctx5 = document.getElementById('chart5')?.getContext('2d');
     if (ctx5) {
-        const avgDelayRates = labels.map((_, idx) => {
-            const sumBalance = companies.reduce((sum, c) => sum + data['개인신용 대출잔액'][c][idx], 0);
-            const sumDelay = companies.reduce((sum, c) => sum + data['연체금액'][c][idx], 0);
-            return sumBalance > 0 ? (sumDelay / sumBalance) : 0;
-        });
+        const avgDelayRates = [0.0589, 0.0494, 0.0377, 0.0315, 0.0206, 0.0171, 0.0145, 0.0151, 0.0126, 0.0128, 0.0096];
+
 
         new Chart(ctx5, {
             type: 'line',
@@ -229,48 +226,57 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Chart 9: 회사별 연체금액 박스플롯 (Boxplot) ---
+    // Helper to calculate min, avg, max
+    const getStats = (item) => {
+        return companies.map(c => {
+            const arr = data[item][c];
+            const min = Math.min(...arr);
+            const max = Math.max(...arr);
+            const avg = arr.reduce((a, b) => a + b, 0) / arr.length;
+            return { min, avg, max };
+        });
+    };
+
+    // --- Chart 9: 회사별 연체금액 요약 (Bar) ---
     const ctx9 = document.getElementById('chart9')?.getContext('2d');
-    if (ctx9 && window.ChartBoxPlot) {
+    if (ctx9) {
+        const stats = getStats('연체금액');
         new Chart(ctx9, {
-            type: 'boxplot',
+            type: 'bar',
             data: {
                 labels: companies,
-                datasets: [{
-                    label: '연체금액 분포',
-                    data: companies.map(c => data['연체금액'][c]),
-                    backgroundColor: 'rgba(56, 189, 248, 0.5)',
-                    borderColor: '#38bdf8',
-                    borderWidth: 1,
-                    outlierColor: '#f87171'
-                }]
+                datasets: [
+                    { label: '최소', data: stats.map(s => s.min), backgroundColor: '#34d399' },
+                    { label: '평균', data: stats.map(s => s.avg), backgroundColor: '#38bdf8' },
+                    { label: '최대', data: stats.map(s => s.max), backgroundColor: '#f87171' }
+                ]
             },
             options: {
                 responsive: true, maintainAspectRatio: false,
-                scales: { y: moneyYAxis }
+                scales: { y: moneyYAxis },
+                plugins: { tooltip: moneyTooltip }
             }
         });
     }
 
-    // --- Chart 10: 회사별 연체율 분포 박스플롯 (Boxplot) ---
+    // --- Chart 10: 회사별 연체율 요약 (Bar) ---
     const ctx10 = document.getElementById('chart10')?.getContext('2d');
-    if (ctx10 && window.ChartBoxPlot) {
+    if (ctx10) {
+        const stats = getStats('연체율');
         new Chart(ctx10, {
-            type: 'boxplot',
+            type: 'bar',
             data: {
                 labels: companies,
-                datasets: [{
-                    label: '연체율 분포',
-                    data: companies.map(c => data['연체율'][c]),
-                    backgroundColor: 'rgba(139, 92, 246, 0.5)',
-                    borderColor: '#8b5cf6',
-                    borderWidth: 1,
-                    outlierColor: '#f87171'
-                }]
+                datasets: [
+                    { label: '최소', data: stats.map(s => s.min), backgroundColor: '#34d399' },
+                    { label: '평균', data: stats.map(s => s.avg), backgroundColor: '#8b5cf6' },
+                    { label: '최대', data: stats.map(s => s.max), backgroundColor: '#f87171' }
+                ]
             },
             options: {
                 responsive: true, maintainAspectRatio: false,
-                scales: { y: percentYAxis }
+                scales: { y: percentYAxis },
+                plugins: { tooltip: percentTooltip }
             }
         });
     }
