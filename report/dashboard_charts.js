@@ -132,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Chart 5: 6개사 평균 연체율 추이 (Line) ---
     const ctx5 = document.getElementById('chart5')?.getContext('2d');
     if (ctx5) {
-        const avgDelayRates = [0.0589, 0.0494, 0.0377, 0.0315, 0.0206, 0.0171, 0.0145, 0.0151, 0.0126, 0.0128, 0.0096];
+        const avgDelayRates = [0.0589, 0.0494, 0.0377, 0.0315, 0.0206, 0.0171, 0.0145, 0.0151, 0.0126, 0.0128, 0.0128];
 
 
         new Chart(ctx5, {
